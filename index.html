@@ -1642,14 +1642,17 @@ Happy Women’s Day!<br>`.trim();
                 }
 
                 // Hide envelope and show final letter
+                // On mobile (no photos), transition quickly; on desktop wait for photos
+                const hideDelay = window.innerWidth < 768 ? 400 : 1000;
+                const showDelay = window.innerWidth < 768 ? 400 : 800;
                 setTimeout(() => {
                     envelope.classList.add('hiding');
 
                     setTimeout(() => {
                         envelope.style.display = 'none';
                         showFinalLoveLetter();
-                    }, 800);
-                }, 1000);
+                    }, showDelay);
+                }, hideDelay);
             }
         }
 
@@ -1860,11 +1863,17 @@ Happy Women’s Day!<br>`.trim();
             }
         });
 
-        // Envelope click handler
-        document.getElementById('envelopeContainer').addEventListener('click', function (e) {
+        // Envelope click + touch handler
+        const envelopeEl = document.getElementById('envelopeContainer');
+        envelopeEl.addEventListener('click', function (e) {
             e.stopPropagation();
             openEnvelope();
         });
+        envelopeEl.addEventListener('touchstart', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            openEnvelope();
+        }, { passive: false });
 
         // Window resize
         window.addEventListener('resize', () => {
