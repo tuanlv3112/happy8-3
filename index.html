@@ -284,17 +284,18 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-start !important;
             justify-content: center;
-            text-align: left;
+            text-align: left !important;
         }
 
         .letter-text {
+            width: 100%;
             font-size: 1.05rem;
             color: #2c3e50;
             line-height: 1.7;
             font-weight: 400;
-            text-align: left;
+            text-align: left !important;
         }
 
         .letter-text .heart {
@@ -421,12 +422,12 @@
             opacity: 0;
             transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             font-family: 'Pacifico', serif;
-            text-align: left;
+            text-align: left !important;
             overflow: hidden;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-start !important;
             justify-content: center;
         }
 
@@ -436,10 +437,11 @@
         }
 
         .final-love-letter .letter-text {
+            width: 100%;
             font-size: 1.15rem;
             color: #ffffff;
             line-height: 1.9;
-            text-align: left;
+            text-align: left !important;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
@@ -943,7 +945,7 @@
         /* ==================== NEON TEXT ==================== */
         .neon-love-text {
             position: fixed;
-            top: calc(50% - 245px);
+            top: calc(50% - 22vh);
             /* Right above the final love letter (letter height: 450px, top edge at calc(50% - 225px)) */
             left: 50%;
             transform: translateX(-50%);
@@ -997,7 +999,7 @@
             /* Neon text - outside above final letter on mobile */
             .neon-love-text {
                 position: fixed !important;
-                top: calc(50% - 35vh + 81px) !important;
+                top: calc(50% - 35vh + 110px) !important;
                 left: 50% !important;
                 transform: translateX(-50%) !important;
                 font-size: 1.1rem;
@@ -1007,12 +1009,12 @@
 
             /* Final love letter layout on mobile */
             .final-love-letter {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                padding-top: 20px;
-                padding-bottom: 20px;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                justify-content: flex-start !important;
+                padding-top: 20px !important;
+                padding-bottom: 20px !important;
             }
 
             /* Envelope smaller on mobile */
@@ -1063,12 +1065,14 @@
                 max-width: 400px;
                 height: auto;
                 max-height: 70vh;
-                padding: 25px 20px;
+                padding: 25px 20px !important;
+                align-items: flex-start !important;
             }
 
             .final-love-letter .letter-text {
                 font-size: 0.9rem;
                 line-height: 1.6;
+                text-align: left !important;
             }
 
             .final-love-letter .letter-text .heart {
@@ -1358,11 +1362,9 @@
         const neonText = '💕 Happy women day 💕';  // ← Thay đổi chữ neon ở đây
 
         // Nội dung giấy nhắn nhủ (khoảng 10 dòng)
-        const loveLetterContent = `
-            Dear Sweetie,<br>
-            Wishing you a day filled with love, laughter, and all the beautiful things life has to offer. <br>
-            Happy Women’s Day!<br>
-        `;
+        const loveLetterContent = `Dear Sweetie,<br>
+Wishing you a day filled with love, laughter, and all the beautiful things life has to offer. <br>
+Happy Women’s Day!<br>`.trim();
 
         // Dữ liệu duy nhất
         const loveLetters = [{
