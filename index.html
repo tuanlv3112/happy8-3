@@ -1642,9 +1642,9 @@ Happy Women’s Day!<br>`.trim();
                 }
 
                 // Hide envelope and show final letter
-                // On mobile (no photos), transition quickly; on desktop wait for photos
-                const hideDelay = window.innerWidth < 768 ? 400 : 1000;
-                const showDelay = window.innerWidth < 768 ? 400 : 800;
+                // On mobile: instant; on desktop: wait for photos to fly
+                const hideDelay = window.innerWidth < 768 ? 50 : 1000;
+                const showDelay = window.innerWidth < 768 ? 50 : 800;
                 setTimeout(() => {
                     envelope.classList.add('hiding');
 
